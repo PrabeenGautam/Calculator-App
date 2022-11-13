@@ -95,6 +95,10 @@ function calculatorEvents(e) {
   if (e.target.closest(".number") || "012345679".includes(e.key)) {
     if (previewValue.textContent.length >= 12)
       previewValue.style.fontSize = "1.5rem";
+
+    if (operationPreview.textContent.includes("="))
+      operationPreview.textContent = "";
+
     if (!showResult && !anotherNumber) {
       previewValue.textContent.startsWith("0")
         ? (previewValue.textContent = e.key || e.target.textContent)
@@ -112,15 +116,16 @@ function calculatorEvents(e) {
     changeStyle(previewValue.textContent / 100);
   }
 
-  if (e.target.closest("#back") || e.key === "Backspace") {
-    if (allowBack) {
-      if (previewValue.textContent != "0" && previewValue.textContent) {
-        const value = previewValue.textContent.split("");
-        value.splice(-1);
-        previewValue.textContent = value.length > 0 ? value.join("") : 0;
-      } else {
-        previewValue.textContent = "0";
-      }
+  if (e.target.closest("#back") || (e.key === "Backspace" && allowBack)) {
+    if (
+      previewValue.textContent != "0" &&
+      !previewValue.textContent === "Infinity"
+    ) {
+      const value = previewValue.textContent.split("");
+      value.splice(-1);
+      previewValue.textContent = value.length > 0 ? value.join("") : 0;
+    } else {
+      previewValue.textContent = "0";
     }
   }
 
@@ -227,7 +232,10 @@ function calculatorEvents(e) {
     const prevOperand = Number.parseFloat(operations);
     const operator = getOperator();
 
-    if (
+    if (previewValue.textContent === "Infinity") {
+      operationPreview.textContent = "";
+      previewValue.textContent = 0;
+    } else if (
       operator.includes("*") ||
       operator.includes("/") ||
       operator.includes("+") ||
