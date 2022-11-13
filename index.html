@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="top-bar"></div>
+        <div class="calculator-container">
+          <div class="preview">
+            <div class="operations"></div>
+            <div class="value">0</div>
+          </div>
+          <div class="buttons">
+            <div class="btn" id="percentage">%</div>
+            <div class="btn" id="reset">CE</div>
+            <div class="btn" id="reset_all">C</div>
+            <div class="btn" id="back">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-backspace"
+                viewBox="0 0 16 16">
+                <path
+                  d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z" />
+                <path
+                  d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z" />
+              </svg>
+            </div>
+            <div class="btn" id="inverse"><sup>1</sup><sub>/x</sub></div>
+            <div class="btn" id="square">x<sup>2</sup></div>
+            <div class="btn" id="square_root">&radic;x</div>
+            <div class="btn" id="divide">/</div>
+            <div class="btn number" id="seven">7</div>
+            <div class="btn number" id="eight">8</div>
+            <div class="btn number" id="nine">9</div>
+            <div class="btn" id="multiply">*</div>
+            <div class="btn number" id="four">4</div>
+            <div class="btn number" id="five">5</div>
+            <div class="btn number" id="six">6</div>
+            <div class="btn" id="substract">-</div>
+            <div class="btn number" id="one">1</div>
+            <div class="btn number" id="two">2</div>
+            <div class="btn number" id="three">3</div>
+            <div class="btn" id="add">+</div>
+            <div class="btn oper_num" id="negate">
+              <sup>+</sup><sub>/-</sub>
+            </div>
+            <div class="btn number" id="zero">0</div>
+            <div class="btn oper_num" id="dot">.</div>
+            <div class="btn" id="equal">=</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
