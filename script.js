@@ -129,6 +129,8 @@ function calculatorEvents(e) {
         const value = previewValue.textContent.split("");
         value.splice(-1);
         previewValue.textContent = value.length > 0 ? value.join("") : 0;
+        if (previewValue.textContent.length <= 12)
+          previewValue.style.fontSize = "2.5rem";
       } else {
         previewValue.textContent = "0";
       }
