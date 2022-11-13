@@ -92,7 +92,10 @@ function autoCalculate(operator) {
 }
 
 function calculatorEvents(e) {
-  if (e.target.closest(".number") || "012345679".includes(e.key)) {
+  if (
+    (e.target.closest(".number") || "012345679".includes(e.key)) &&
+    previewValue.textContent.length <= 24
+  ) {
     if (previewValue.textContent.length >= 12)
       previewValue.style.fontSize = "1.5rem";
 
@@ -116,16 +119,23 @@ function calculatorEvents(e) {
     changeStyle(previewValue.textContent / 100);
   }
 
-  if (e.target.closest("#back") || (e.key === "Backspace" && allowBack)) {
-    if (
-      previewValue.textContent != "0" &&
-      !previewValue.textContent === "Infinity"
-    ) {
-      const value = previewValue.textContent.split("");
-      value.splice(-1);
-      previewValue.textContent = value.length > 0 ? value.join("") : 0;
+  if (e.target.closest("#back") || e.key === "Backspace") {
+    if (allowBack) {
+      if (
+        previewValue.textContent != "0" &&
+        !(previewValue.textContent === "Infinity") &&
+        previewValue.textContent
+      ) {
+        const value = previewValue.textContent.split("");
+        value.splice(-1);
+        previewValue.textContent = value.length > 0 ? value.join("") : 0;
+      } else {
+        previewValue.textContent = "0";
+      }
     } else {
-      previewValue.textContent = "0";
+      previewValue.textContent = 0;
+      allowBack = true;
+      operationPreview.textContent = "";
     }
   }
 
