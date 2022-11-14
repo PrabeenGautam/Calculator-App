@@ -25,8 +25,9 @@ function calculatorEvents(e) {
     if (operationPreview.textContent.includes("="))
       operationPreview.textContent = "";
 
-    if (!showResult && !anotherNumber) {
-      previewValue.textContent.startsWith("0")
+    if (!(showResult || anotherNumber)) {
+      previewValue.textContent.startsWith("0") &&
+      !previewValue.textContent.includes(".")
         ? (previewValue.textContent = e.key || e.target.textContent)
         : (previewValue.textContent += e.key || e.target.textContent);
     } else {
