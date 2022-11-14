@@ -34,7 +34,7 @@ body {
 }
 
 .preview {
-  height: 8rem;
+  min-height: 8rem;
   width: 100%;
 
   display: flex;
